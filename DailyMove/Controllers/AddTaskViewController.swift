@@ -15,7 +15,7 @@ class AddTaskViewController: UIViewController {
     let realm = try! Realm()
     let cellIdentifier: String = "cell"
     var sectionHeader: [String] = ["MOVE"  , "Priority" , "Due date"]
-    var placeholders: [String] = ["task", "memo"]
+    var placeholders: [String] = ["task", "memo(optional)"]
     override func viewDidLoad() {
         super.viewDidLoad()
         

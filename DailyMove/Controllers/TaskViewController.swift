@@ -20,10 +20,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         title = "MOVE"
-        todoTableView.rowHeight = 50
+        todoTableView.rowHeight = 80
         todoTableView.separatorStyle = .none
         view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         // Do any additional setup after loading the view.
@@ -47,6 +47,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadData() {
         todo = realm.objects(Task.self).filter("done == false").sorted(byKeyPath: "createdDate", ascending: true).sorted(byKeyPath: "dueDate", ascending: true).sorted(byKeyPath: "priority", ascending: false)
         todoTableView.reloadData()
+        if let c = todo?.count {
+            self.tabBarItem.badgeValue = String(c)
+        }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -65,6 +68,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.backgroundColor = color
                 
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                cell.textLabel?.font.withSize(30)
                 
                 let selectedCellView = UIView()
                 selectedCellView.backgroundColor = cell.backgroundColor
@@ -133,7 +137,7 @@ extension TaskViewController: UISearchBarDelegate {
                 searchBar.resignFirstResponder()
             }
         } else {
-            todo = todo?.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "createdDate", ascending: true)
+            todo = todo?.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "createdDate", ascending: true).sorted(byKeyPath: "dueDate", ascending: true).sorted(byKeyPath: "priority", ascending: false)
             todoTableView.reloadData()
         }
     }
