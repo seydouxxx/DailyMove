@@ -8,8 +8,10 @@
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import SwipeCellKit
 
-class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
+    
 
     @IBOutlet weak var todoTableView: UITableView!
     var todo: Results<Task>?
@@ -21,6 +23,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         title = "TODO"
+        todoTableView.rowHeight = 50
+        todoTableView.separatorStyle = .none
         // Do any additional setup after loading the view.
         self.loadData()
     }
@@ -80,11 +84,58 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         if let item = todo?[indexPath.row] {
             cell.textLabel?.text = item.name
             cell.backgroundColor = UIColor(hexString: item.color)
+            
+            let selectedCellView = UIView()
+            selectedCellView.backgroundColor = cell.backgroundColor
+            cell.selectedBackgroundView = selectedCellView
         }
         return cell
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//        guard orientation == .right else { return nil }
+        if orientation == .right {
+            
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+                // handle action by updating model with deletion
+                if let item = self.todo?[indexPath.row] {
+                    do {
+                        try self.realm.write({
+                            self.realm.delete(item)
+                        })
+                        self.todoTableView.reloadData()
+                    } catch {
+                        print("Error occured during Deleting element. \(error)")
+                    }
+                }
+                
+            }
+            // customize the action appearance
+    //        deleteAction.image = UIImage(named: "delete")
+            return [deleteAction]
+        } else {
+            let doneAction = SwipeAction(style: .default, title: "Done") { action, indexPath in
+                if let item = self.todo?[indexPath.row] {
+                    do {
+                        try self.realm.write {
+                            item.done = !item.done
+                        }
+//                        self.todoTableView.reloadData()
+                    } catch {
+                        print("Error occured during Changing state. \(error)")
+                    }
+                }
+            }
+            return [doneAction]
+        }
+    }
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .selection
+        return options
     }
 }
