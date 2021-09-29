@@ -16,6 +16,13 @@
 		7EA5760F2702CD4400282A3B /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5760E2702CD4400282A3B /* DoneViewController.swift */; };
 		7EA576112702CF9900282A3B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA576102702CF9900282A3B /* Task.swift */; };
 		7EB4E791270464D200ADD5F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4E790270464D200ADD5F1 /* DetailViewController.swift */; };
+		7EB4E795270499CF00ADD5F1 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4E794270499CF00ADD5F1 /* AddTaskViewController.swift */; };
+		7EB4E79C2704ADE100ADD5F1 /* AddTaskDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4E79A2704ADE100ADD5F1 /* AddTaskDateTableViewCell.swift */; };
+		7EB4E79D2704ADE100ADD5F1 /* AddTaskDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4E79B2704ADE100ADD5F1 /* AddTaskDateTableViewCell.xib */; };
+		7EB4E7A02704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4E79E2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.swift */; };
+		7EB4E7A12704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4E79F2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.xib */; };
+		7EB4E7A42704BCC800ADD5F1 /* AddTaskTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4E7A22704BCC800ADD5F1 /* AddTaskTextTableViewCell.swift */; };
+		7EB4E7A52704BCC800ADD5F1 /* AddTaskTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4E7A32704BCC800ADD5F1 /* AddTaskTextTableViewCell.xib */; };
 		C1998EC886EDF65564EA1451 /* Pods_DailyMove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABB04CA2D6B05F7B94AC564 /* Pods_DailyMove.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +39,13 @@
 		7EA5760E2702CD4400282A3B /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		7EA576102702CF9900282A3B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7EB4E790270464D200ADD5F1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7EB4E794270499CF00ADD5F1 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		7EB4E79A2704ADE100ADD5F1 /* AddTaskDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskDateTableViewCell.swift; sourceTree = "<group>"; };
+		7EB4E79B2704ADE100ADD5F1 /* AddTaskDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskDateTableViewCell.xib; sourceTree = "<group>"; };
+		7EB4E79E2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPriorityTableViewCell.swift; sourceTree = "<group>"; };
+		7EB4E79F2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskPriorityTableViewCell.xib; sourceTree = "<group>"; };
+		7EB4E7A22704BCC800ADD5F1 /* AddTaskTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskTextTableViewCell.swift; sourceTree = "<group>"; };
+		7EB4E7A32704BCC800ADD5F1 /* AddTaskTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskTextTableViewCell.xib; sourceTree = "<group>"; };
 		99F8D914A1D4F6155039E284 /* Pods-DailyMove.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMove.debug.xcconfig"; path = "Target Support Files/Pods-DailyMove/Pods-DailyMove.debug.xcconfig"; sourceTree = "<group>"; };
 		A2CDB8F73FE284999CEFF980 /* Pods-DailyMove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMove.release.xcconfig"; path = "Target Support Files/Pods-DailyMove/Pods-DailyMove.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				7EA575FB2701A2E200282A3B /* TaskViewController.swift */,
+				7EB4E794270499CF00ADD5F1 /* AddTaskViewController.swift */,
 				7EB4E790270464D200ADD5F1 /* DetailViewController.swift */,
 				7EA5760E2702CD4400282A3B /* DoneViewController.swift */,
 			);
@@ -102,8 +117,14 @@
 		7EA5760C2701A64600282A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7EA575FD2701A2E200282A3B /* Main.storyboard */,
 				7EA576022701A2E800282A3B /* LaunchScreen.storyboard */,
+				7EA575FD2701A2E200282A3B /* Main.storyboard */,
+				7EB4E7A22704BCC800ADD5F1 /* AddTaskTextTableViewCell.swift */,
+				7EB4E7A32704BCC800ADD5F1 /* AddTaskTextTableViewCell.xib */,
+				7EB4E79A2704ADE100ADD5F1 /* AddTaskDateTableViewCell.swift */,
+				7EB4E79B2704ADE100ADD5F1 /* AddTaskDateTableViewCell.xib */,
+				7EB4E79E2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.swift */,
+				7EB4E79F2704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +206,9 @@
 			files = (
 				7EA576042701A2E800282A3B /* LaunchScreen.storyboard in Resources */,
 				7EA576012701A2E800282A3B /* Assets.xcassets in Resources */,
+				7EB4E7A12704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.xib in Resources */,
+				7EB4E7A52704BCC800ADD5F1 /* AddTaskTextTableViewCell.xib in Resources */,
+				7EB4E79D2704ADE100ADD5F1 /* AddTaskDateTableViewCell.xib in Resources */,
 				7EA575FF2701A2E200282A3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,11 +263,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EA5760F2702CD4400282A3B /* DoneViewController.swift in Sources */,
+				7EB4E79C2704ADE100ADD5F1 /* AddTaskDateTableViewCell.swift in Sources */,
 				7EA575FC2701A2E200282A3B /* TaskViewController.swift in Sources */,
 				7EA576112702CF9900282A3B /* Task.swift in Sources */,
+				7EB4E7A42704BCC800ADD5F1 /* AddTaskTextTableViewCell.swift in Sources */,
+				7EB4E7A02704B1CB00ADD5F1 /* AddTaskPriorityTableViewCell.swift in Sources */,
 				7EB4E791270464D200ADD5F1 /* DetailViewController.swift in Sources */,
 				7EA575F82701A2E200282A3B /* AppDelegate.swift in Sources */,
 				7EA575FA2701A2E200282A3B /* SceneDelegate.swift in Sources */,
+				7EB4E795270499CF00ADD5F1 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

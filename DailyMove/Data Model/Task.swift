@@ -14,5 +14,6 @@ class Task: Object {
     @objc dynamic var done: Bool = false
     @objc dynamic var dueDate: Date = Date()
     @objc dynamic var createdDate: Date = Date()
+    @objc dynamic var priority: Int = 1
     @objc dynamic var color: String = ""
 }
