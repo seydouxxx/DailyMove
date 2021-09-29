@@ -60,12 +60,16 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
         cell.delegate = self
         if let item = todo?[indexPath.row] {
-            cell.textLabel?.text = item.name
-            cell.backgroundColor = UIColor(hexString: item.color)
-            
-            let selectedCellView = UIView()
-            selectedCellView.backgroundColor = cell.backgroundColor
-            cell.selectedBackgroundView = selectedCellView
+            if let color = UIColor(hexString: item.color) {
+                cell.textLabel?.text = item.name
+                cell.backgroundColor = color
+                
+                cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                
+                let selectedCellView = UIView()
+                selectedCellView.backgroundColor = cell.backgroundColor
+                cell.selectedBackgroundView = selectedCellView
+            }
         }
         return cell
     }
