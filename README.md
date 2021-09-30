@@ -1,4 +1,5 @@
 # DailyMove 📝
+![DailyMove](https://user-images.githubusercontent.com/59252754/135387624-62363420-727d-477e-83bf-ea33016903e2.gif)
 
 
 ## 소개
