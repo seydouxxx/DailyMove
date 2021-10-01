@@ -10,9 +10,17 @@ DailyMove는 직관적이고 간편한 todo 리스트 앱입니다.
 2. 등록된 일들을 완료할 때마다 오른쪽으로 스와이프합니다.
 3. 일과가 끝나면 진척도를 확인합니다.
 
+## 클론 방법
+1. Xcode ide 상단 메뉴 source control -> clone 클릭
+2. https://github.com/seydouxxx/DailyMove.git URL 입력
 
 ## 사용 기술
 * Swift
 * AutoLayout
 * UIKit
 * Realm
+
+## 사용 라이브러리
+* SwipeCellKit
+* ChameleonFramework
+* RealmSwift
